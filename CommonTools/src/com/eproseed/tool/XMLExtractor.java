@@ -38,7 +38,7 @@ public class XMLExtractor {
 		this.buiderFactory = DocumentBuilderFactory.newInstance();
 	}
 
-	public void extractDocumentTypes() throws Exception {
+	public String extractDocumentTypes() throws Exception {
 		DocumentBuilder builder = this.buiderFactory.newDocumentBuilder();
 		this.extracted = builder.newDocument();
 		this.extracted.appendChild(this.extracted.createElement("extracted"));
@@ -58,7 +58,7 @@ public class XMLExtractor {
 		transformer.transform(extracted, new StreamResult(writer));
 		String text = writer.toString();
 		
-		echo(text);
+		return text;
 	}
 
 	private void extractType(Node element) throws Exception {

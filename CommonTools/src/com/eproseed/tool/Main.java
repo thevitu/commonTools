@@ -1,13 +1,15 @@
 package com.eproseed.tool;
 
-import java.io.File;
-
 public class Main {
 
 	public static void main(String[] args) {
 		try {
-			XMLExtractor extractor = new XMLExtractor(new File(args[0]));
-			extractor.extractDocumentTypes();
+			ExtractorWindow window = new ExtractorWindow();
+			if (args != null && args.length >= 2) {
+				window.setEnvVar(args[0])
+						.setDefaultDir(args[1]);
+			}
+			window.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
