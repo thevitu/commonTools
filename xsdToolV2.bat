@@ -1,0 +1,1 @@
+java -jar xsdToolV2.jar
